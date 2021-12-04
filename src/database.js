@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
+require("dotenv").config({ path: "variables.env" });
 
 export async function connect() {
   try {
-    await mongoose.connect(
-      "mongodb+srv://admin:admin123@cluster0.dfcao.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    );
+    await mongoose.connect(process.env.BD);
 
     console.log("Base de datos conectada");
   } catch (error) {
